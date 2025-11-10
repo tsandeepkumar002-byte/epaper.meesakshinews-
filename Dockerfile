@@ -1,18 +1,18 @@
 # ✅ Backend Dockerfile for MEE SAKSHI NEWS E-Paper CMS
 FROM node:18-slim
 
-# Set working directory
+# Set working directory inside container
 WORKDIR /app
 
-# Copy package files and install dependencies
-COPY package*.json ./
+# Copy backend package files and install dependencies
+COPY ./backend/package*.json ./
 RUN npm install --production
 
-# Copy all source code
-COPY . .
+# Copy all backend code into container
+COPY ./backend .
 
-# Expose port
+# Expose backend port
 EXPOSE 4000
 
-# Start the server
+# Start backend from backend folder
 CMD ["node", "server.js"]
