@@ -1,0 +1,8 @@
+services:
+  - type: web
+    name: epaper-backend
+    env: docker
+    repository:
+      repoName: "meesakshinews/epaper.meesakshinews"
+      branch: main
+      rootDir: backend
