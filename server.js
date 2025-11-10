@@ -1,20 +1,13 @@
-# Backend Dockerfile for MEE SAKSHI NEWS E-Paper CMS
-FROM node:18-slim
+const express = require('express')
+const cors = require('cors')
 
-# Set working directory
-WORKDIR /app
+const app = express()
+app.use(cors())
+app.use(express.json())
 
-# Copy only the backend files into /app
-COPY ./backend/package*.json ./
+app.get('/api/health', (req, res) => {
+  res.send('✅ MEE SAKSHI NEWS Backend running successfully on Render!')
+})
 
-# Install dependencies
-RUN npm install --production
-
-# Copy the rest of the backend code
-COPY ./backend .
-
-# Expose port 4000
-EXPOSE 4000
-
-# Start the backend server
-CMD ["node", "server.js"]
+const PORT = process.env.PORT || 4000
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
