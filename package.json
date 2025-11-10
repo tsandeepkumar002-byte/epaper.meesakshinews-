@@ -1,1 +1,1 @@
-{ "name":"epaper-backend", "version":"0.1.0", "main":"server.js" }
+{ "name":"epaper-frontend", "version":"0.1.0" }
